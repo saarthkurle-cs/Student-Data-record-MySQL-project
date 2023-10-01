@@ -88,7 +88,7 @@ class checkNum{
 
 class checkRecord{
 	public static boolean checkRec(int rno){
-		try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/javabase", "java", "abc123")){
+		try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/javabase", "root", "password")){
 			String check = "select rno from app2 where rno=?";
 			PreparedStatement ps = con.prepareStatement(check);
 			ps.setInt(1, rno);
@@ -151,7 +151,7 @@ class Add extends JFrame implements ActionListener{
 		cn = new checkNum();
 		cr = new checkRecord();
 			if(ae.getSource().equals(btn_save)){
-				try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/javabase", "java", "abc123")){
+				try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/javabase", "root", "password")){
 					
 					String str_rno = txt_rno.getText();
 					String name = txt_name.getText();
@@ -214,7 +214,7 @@ class View extends JFrame{
 		model.addColumn("Physics");
 		model.addColumn("Economics");
 
-		try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javabase", "java", "abc123")){
+		try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javabase", "root", "password")){
 			String sql = "select * from app2";
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
@@ -244,7 +244,7 @@ class Student_charts extends JFrame{
 	Student_charts(){
 		DefaultCategoryDataset ds = new DefaultCategoryDataset();
 
-		try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javabase", "java", "abc123")){
+		try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javabase", "root", "password")){
 			String sql = "select * from app2";
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
@@ -328,7 +328,7 @@ class Delete extends JFrame implements ActionListener{
 		if(ae.getSource().equals(btn_delete)){
 			if(cn.isNum(str_rno)){
 
-				try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javabase", "java", "abc123")){
+				try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javabase", "root", "password")){
 
 					String check = "select rno from app2 where rno=?";
 					PreparedStatement ps = conn.prepareStatement(check);
@@ -417,7 +417,7 @@ class Update extends JFrame implements ActionListener{
 		cr = new checkRecord();
 		//try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javabase", "java", "abc123")){
 			if(ae.getSource().equals(retrieve)){
-				try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/javabase", "java", "abc123")){
+				try(Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/javabase", "root", "password")){
 					String str_rno = txt_rno.getText();
 					if(cr.checkRec(Integer.parseInt(str_rno))){
 						String sql = "select rno, name, marks1, marks2, marks3 from app2 where rno=" + str_rno;
@@ -442,7 +442,7 @@ class Update extends JFrame implements ActionListener{
 			}
 
 			if(ae.getSource().equals(btn_update)){
-				try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javabase", "java", "abc123")){
+				try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/javabase", "root", "password")){
 
 					String str_rno = txt_rno.getText();
 					String str_name = txt_name.getText();
