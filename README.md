@@ -9,4 +9,5 @@ SQL Commands:
 Terminal Commands: 
 
 Build: javac -d bin -cp lib/jdbc.jar:kk/jfreechart-1.0.19.jar:kk/jcommon-1.0.23.jar:. first.java
+
 Run: java -cp bin:jdbc.jar:kk/jfreechart-1.0.19.jar:kk/jcommon-1.0.23.jar:. A1Int
